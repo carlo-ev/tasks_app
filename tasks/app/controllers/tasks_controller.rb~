@@ -1,12 +1,17 @@
 class TasksController < ApplicationController
   def index
+	@tasks = Task.all
   end
 
   def show
+	@task = Task.find(params[:id])
   end
 
   def create
 	@task = Task.new(params[:task])
+	if @task.save
+		redirect_to @task
+	end
   end
 
   def new
@@ -20,5 +25,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
+	Task.find(params[:id]).try(:delete)
   end
 end

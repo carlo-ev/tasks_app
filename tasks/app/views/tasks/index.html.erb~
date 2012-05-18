@@ -3,7 +3,6 @@
 	<% @tasks.each do |task| %>
 		<li><%= task.description %>
 		    <%= link_to "mostrar", task %>
-		    <%= link_to "borrar!", task, :method => :delete, :confirm => "Estas seguro?! D:" %>
 		</li>
 	<% end%>
 </ol>
