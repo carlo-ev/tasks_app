@@ -2,7 +2,10 @@
 <ol>
 	<% @tasks.each do |task| %>
 		<li><%= task.description %>
-		    <%= link_to "mostrar", task %>
+		    <%= link_to "Show", task %>
+		    <%= link_to "Edit", edit_task_path(id: task.id) %>
+		    <%= link_to "Delete!", task, :method => :delete, :confirm => "Are you sure?! D:" %>
 		</li>
 	<% end%>
 </ol>
+<%= link_to "New", new_task %>

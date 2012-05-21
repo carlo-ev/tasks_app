@@ -19,9 +19,15 @@ class TasksController < ApplicationController
   end
 
   def update
+	@task = Task.find(params[:id])
+	@task.description, @task.priority = params[:task][:description], params[:task][:priority]
+	if @task.save
+		redirect_to tasks_path
+	end
   end
 
   def edit
+	@task = Task.find(params[:id])
   end
 
   def destroy
