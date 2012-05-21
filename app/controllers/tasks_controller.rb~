@@ -19,9 +19,11 @@ class TasksController < ApplicationController
   end
 
   def update
-	@task.description, @task.priority = params[:description], params[:parameter]
-	if @task.save
-		redirect_to tasks_path
+	@task = Task.find(params[:id])
+	if @task.update_attributes(params[:task])
+		redirect_to @task
+	else
+		render :edit	
 	end
   end
 
