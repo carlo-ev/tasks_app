@@ -2,8 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def current_user
-	if sesssion[:user_id]
-		@current_user ||= User.find(session[:user_new])
+	@current_user ||= User.find(session[:user_new]) if session[:user_id]
   end
 
   def logged_in?

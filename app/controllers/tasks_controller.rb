@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+
   def index
 	@tasks = Task.all
   end
@@ -35,4 +36,5 @@ class TasksController < ApplicationController
 	Task.find(params[:id]).try(:delete)
 	redirect_to tasks_path
   end
+
 end

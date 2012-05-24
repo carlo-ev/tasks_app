@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<%= flash.each do |name, msg| %>
+	<% flash.each do |name, msg| %>
 		<div id="flash_<%= name %>">
 			<%= msg %>
 		</div>
@@ -19,6 +19,7 @@
 	<% else %>
 		<%= link_to "Create Account", new_user_path %>
 		<%= link_to "Log in", new_session_path %>
+	<% end %>
 <%= yield %>
 
 </body>
